@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: glpi
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: "glpi.kosmos.rancher.kosmos.fr"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: glpi
+            port:
+              number: 8080
+  tls:
+  - hosts:
+      - "glpi.kosmos.rancher.kosmos.fr"
+    secretName: wildcard-kosmos-rancher-kosmos-fr-tls
