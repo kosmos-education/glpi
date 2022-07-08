@@ -5,7 +5,7 @@ metadata:
   labels:
     app: glpi
 spec:
-  schedule: "*/1 * * * *"
+  schedule: "*/10 * * * *"
   jobTemplate:
     spec:
       template:
